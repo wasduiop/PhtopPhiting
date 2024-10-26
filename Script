@@ -1,43 +1,29 @@
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/ScriptsLynX/LynX/main/UI-Library/Source.lua"))()
+local M7Lib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/M7ilan/M7-UI-Library/main/Source.lua')))()
 
-local win = lib:Window("LynX",Color3.fromRGB(229,49,90))
+local Window = M7Lib:CreateWindow("Title", "Version", "Logo ID", Color3.fromRGB(50, 200, 100))
 
-local page1 = win:Page("FirstPage","7072978559")
-local page2 = win:Page("SecondPage","7072718524")
+local Tab = Window:CreateTab("Tab Name")
 
-local section1 = page1:Section("Section 1")
-local section2 = page1:Section("Section 2")
-local section3 = page2:Section("Section 3")
+local Section = Tab:CreateSection("Section Name")
 
-section1:Label("Simple Label")
-section1:TinyLabel("Tiny Label")
+Section:Label("Label")
 
-section1:Button("Nice Button",function()
-    print("Hi")
+Section:Button("Button", function()
+    print("Button Pressed.")
 end)
 
-section1:Toggle("Nice Toggle 1",false,function(state)
-    lib:Notify("Notification",state,3)
+Section:Toggle("Toggle me", false, function(value)
+    print(value)
 end)
 
-section1:Toggle("Nice Toggle 2",true,function(state)
-    print(state)
+Section:Dropdown("Difficulty", {"Easy", "Medium", "Hard"}, function(Difficulty)
+    print(Difficulty)
 end)
 
-section1:Slider("Nice Slider",1,100,50,function(state)
-    game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = state
+Section:KeyBind("Print KeyBind", Enum.KeyCode.M, function(input)
+    print("Keybind Pressed.")
 end)
 
-section2:TextBox("Nice Textbox","0-100",function(state)
-    print(state)
+Section:Slider("Speed", 100, 16, function(value)
+    game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").WalkSpeed = value
 end)
-
-section2:Dropdown("Nice Dropdown",{"Nice","Dropdown","LynX"},function(state)
-    print(state)
-end)
-
-section2:KeyBind("Nice Keybind",function()
-    print("Binded")
-end)
-
-LoadPage("FirstPage")
