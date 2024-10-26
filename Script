@@ -1,20 +1,20 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/1Coderexe/UILibs/main/BadUILib.lua"))()
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laagginq/ui-libraries/main/coastified/src.lua"))()
+local Window = Lib:Window("ui lib", "pro haxxx", Enum.KeyCode.RightShift)
+local Test = Window:Tab("Silent Aimbot")
 
-local main = Library:Init {
-	name = "UINAME"
-}
+Test:Toggle('Enabled',function(state)
+    print(state)
+end)
 
-local tab = main:CreateTab {name = "NAME"}
 
-local button = tab:Button {text = "TEXTHERE", callback}
-local label = tab:Label {text = "LABELTEXTHERE"}
+Test:Slider('Fov Size',1,200,75,function(Value)
+    print(Value)
+end)
 
-local slider = tab:Slider {title = "TITLEHERE", min = 0, max = 100, default = 50, callback}
+Test:Colorpicker("Color",Color3.fromRGB(0,0,0), function(color)
+    print(color)
+end)
 
-local button = tab:Button {title = "TITLEHERE", callback}
-
-local dropdown = tab:Dropdown{
-	title = "TITLEHERE",
-	callback = function(v) end
-}
-dropdown:Add("value", "id")
+Test:Dropdown("Part",{'Head',"UpperTorso","HumanoidRootPart","LowerTorso"}, function(objective)
+    print(objective)
+end)
