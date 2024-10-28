@@ -12,6 +12,6 @@ end)
 tab.newButton("obstruct", "Prints Hello!", function()
     print('nodance')
 
-    game.Workspace.Rooms:GetChildren().Interactables.SkeletonDancer:Destroy()
+    game.Workspace.Rooms:GetDescendants().Interactables:GetChildren(SkeletonDancer):Destroy()
         
 end)
