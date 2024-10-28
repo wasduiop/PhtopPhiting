@@ -4,9 +4,14 @@ local window = DrRayLibrary:Load("DrRay", "Default")
 
 local tab = DrRayLibrary.newTab("My Tab", "ImageIdHere")
 
-tab.newButton("Button", "Prints Hello!", function()
+tab.newButton("nobounce", "Prints Hello!", function()
     print("Bouncer removed")
-
     game.Workspace.Monsters.Bouncer:Destroy()
+end)
 
+tab.newButton("obstruct", "Prints Hello!", function()
+    print('nodance')
+
+    game.Workspace.Rooms:GetChildren().Interactables.SkeletonDancer:Destroy()
+        
 end)
